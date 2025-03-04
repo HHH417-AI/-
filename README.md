@@ -21,7 +21,7 @@ Flink Job配置
 输出路径：./output (本地目录)
 窗口长度：5分钟滚动窗口
 
-执行步骤
+# 执行步骤
  
  1. 启动Kafka集群
 #在所有节点启动zookeeper和Kafka服务
