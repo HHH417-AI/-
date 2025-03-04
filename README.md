@@ -4,8 +4,7 @@
 本示例演示如何通过Kafka生产者生成实时单词数据，并使用Apache Flink进行窗口化单词计数统计。结果以5分钟窗口周期输出到文件系统。
 
 # 架构流程
-[Kafka Producer] --> (testtopic) --> [流式计算引|擎(Source -> Map ->KeyBy ->
-Window ->Sink)] --> (本地文件系统)
+[Kafka Producer] --> (testtopic) --> [流式计算引|擎(Source -> Map ->KeyBy -> Window ->Sink)] --> (本地文件系统)
 # 环境要求
 Java 8+
 zookeeper 3.4
@@ -13,15 +12,17 @@ Kafka 2.11
 三节点集群 (master/slave1/slave2)
 
 # 配置文件说明
+
 Kafka Producer配置
 bootstrap.servers=master:9092,slave1:9092,slave2:9092
 目标主题：testtopic
-
 Flink Job配置
 消费组：flink-consumer-group
 输出路径：./output (本地目录)
 窗口长度：5分钟滚动窗口
- 执行步骤
+
+执行步骤
+ 
  1. 启动Kafka集群
 # 在所有节点启动zookeeper和Kafka服务
 cd /opt/software/flink/zookeeper/bin
