@@ -33,7 +33,7 @@ kafka-server-start.sh /opt/software/flink/kafka/config/server.properties
 kafka-topics.sh --create \
 --bootstrap-server master:9092,slave1:9092,slave2:9092 \
 --topic testtopic \
---partitions 2 \
+--partitions 3 \
 --replication-factor 2
 2. 运行WordCountSource生产数据传入到kafka
 输出示例：
