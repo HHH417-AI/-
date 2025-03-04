@@ -24,12 +24,12 @@ Flink Job配置
 执行步骤
  
  1. 启动Kafka集群
-# 在所有节点启动zookeeper和Kafka服务
+#在所有节点启动zookeeper和Kafka服务
 cd /opt/software/flink/zookeeper/bin
 ./zkServer.sh start
 kafka-server-start.sh /opt/software/flink/kafka/config/server.properties
 
-# 创建主题（在任意节点执行）
+#创建主题（在任意节点执行）
 kafka-topics.sh --create \
 --bootstrap-server master:9092,slave1:9092,slave2:9092 \
 --topic testtopic \
@@ -51,13 +51,13 @@ Sent: apple,4
 检查输出目录（每5分钟生成一次内容，当超过5分钟没有输出内容，则产生一个新的文档存储）：
 
 ./output/
-# 输出类似：
+#输出类似：
 .part-01179885-b6d0-4fc1-86c4-03b374fc26d8-0.inprogress.8b142f9b-07e4-41bf-8cc2-bb0f5843286f
 
-# 查看文件内容
+#查看文件内容
 在本地找到文档（./output），打开即可查看
 
-# 格式示例：
+#格式示例：
 2023/05/01T12:05:00,apple,7
 2023/05/01T12:05:00,banana,12
 2023/05/01T12:05:00,pie,9
